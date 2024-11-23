@@ -1,0 +1,21 @@
+[gd_scene load_steps=5 format=3 uid="uid://o5rf3ide4cs0"]
+
+[ext_resource type="Script" path="res://main_character.gd" id="1_ipejo"]
+[ext_resource type="Texture2D" uid="uid://c240phh4d0ihg" path="res://icon.svg" id="2_mk2kw"]
+[ext_resource type="PackedScene" uid="uid://d006aokihadjb" path="res://gun.tscn" id="3_sufhb"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_1eus2"]
+
+[node name="MainCharacter" type="CharacterBody2D"]
+script = ExtResource("1_ipejo")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+scale = Vector2(0.15, 0.15)
+texture = ExtResource("2_mk2kw")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+rotation = 4.71239
+shape = SubResource("CircleShape2D_1eus2")
+
+[node name="Gun" parent="." instance=ExtResource("3_sufhb")]
+position = Vector2(3, 0)

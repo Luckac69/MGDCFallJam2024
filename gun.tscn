@@ -1,0 +1,10 @@
+[gd_scene load_steps=2 format=3 uid="uid://d006aokihadjb"]
+
+[ext_resource type="Texture2D" uid="uid://c240phh4d0ihg" path="res://icon.svg" id="1_84fpv"]
+
+[node name="Gun" type="Node2D"]
+modulate = Color(0.12912, 0.0565119, 0.00151131, 1)
+scale = Vector2(0.225596, 0.0457817)
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("1_84fpv")
