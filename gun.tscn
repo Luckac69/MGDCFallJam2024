@@ -1,10 +1,12 @@
-[gd_scene load_steps=2 format=3 uid="uid://d006aokihadjb"]
+[gd_scene load_steps=3 format=3 uid="uid://cfn2v4b15ukmo"]
 
 [ext_resource type="Texture2D" uid="uid://c240phh4d0ihg" path="res://icon.svg" id="1_84fpv"]
+[ext_resource type="Script" path="res://gun.gd" id="1_s72sm"]
 
 [node name="Gun" type="Node2D"]
-modulate = Color(0.12912, 0.0565119, 0.00151131, 1)
-scale = Vector2(0.225596, 0.0457817)
+scale = Vector2(1, 0.2)
+script = ExtResource("1_s72sm")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(50, 0)
 texture = ExtResource("1_84fpv")
