@@ -15,8 +15,21 @@ func _on_kill_timeout() -> void:
 
 
 
+
+
+func _on_timer_timeout() -> void:
+	out_of_Shooter = true
+
+
+
+
+
+
+
+
+
+
 func _on_body_entered(body:Node2D) -> void:
 	if out_of_Shooter:
 		queue_free()
-
 

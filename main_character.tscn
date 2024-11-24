@@ -11,16 +11,19 @@ radius = 11.5
 radius = 59.0
 
 [sub_resource type="Gradient" id="Gradient_eprhv"]
-offsets = PackedFloat32Array(0, 0.675862)
-colors = PackedColorArray(1, 1, 1, 1, 0, 0, 0, 1)
+offsets = PackedFloat32Array(0, 0.15534, 0.675862)
+colors = PackedColorArray(1, 1, 1, 1, 0.583416, 0.583416, 0.583416, 1, 0, 0, 0, 1)
 
 [sub_resource type="GradientTexture2D" id="GradientTexture2D_ehi3p"]
 gradient = SubResource("Gradient_eprhv")
+width = 3200
+height = 3200
 use_hdr = true
 fill = 1
 fill_from = Vector2(0.5, 0.5)
 
 [node name="MainCharacter" type="CharacterBody2D"]
+scale = Vector2(0.5, 0.5)
 script = ExtResource("1_ipejo")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
@@ -42,9 +45,9 @@ debug_color = Color(0.593034, 0.537443, 0.284602, 0.42)
 
 [node name="PointLight2D" type="PointLight2D" parent="."]
 color = Color(0.916475, 0.231179, 0.262319, 1)
+energy = 0.5
 shadow_enabled = true
 texture = SubResource("GradientTexture2D_ehi3p")
-texture_scale = 3.0
 
 [node name="Camera2D" type="Camera2D" parent="."]
 position_smoothing_enabled = true
