@@ -1,10 +1,14 @@
-[gd_scene load_steps=5 format=3 uid="uid://o5rf3ide4cs0"]
+[gd_scene load_steps=6 format=3 uid="uid://o5rf3ide4cs0"]
 
 [ext_resource type="Script" path="res://main_character.gd" id="1_ipejo"]
 [ext_resource type="Texture2D" uid="uid://c240phh4d0ihg" path="res://icon.svg" id="2_mk2kw"]
 [ext_resource type="PackedScene" uid="uid://cfn2v4b15ukmo" path="res://gun.tscn" id="3_sufhb"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_1eus2"]
+radius = 11.5
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_qs72h"]
+radius = 59.0
 
 [node name="MainCharacter" type="CharacterBody2D"]
 script = ExtResource("1_ipejo")
@@ -18,3 +22,9 @@ scale = Vector2(6, 6)
 shape = SubResource("CircleShape2D_1eus2")
 
 [node name="Gun" parent="." instance=ExtResource("3_sufhb")]
+
+[node name="Hitbox" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Hitbox"]
+shape = SubResource("CircleShape2D_qs72h")
+debug_color = Color(0.593034, 0.537443, 0.284602, 0.42)
