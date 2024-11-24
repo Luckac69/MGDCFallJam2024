@@ -23,6 +23,12 @@ PlayerVariables="*res://player_variables.gd"
 
 window/stretch/mode="canvas_items"
 
+[global_group]
+
+Player=""
+Enemy=""
+Bullet=""
+
 [input]
 
 Up={

@@ -1,8 +1,9 @@
-[gd_scene load_steps=5 format=3 uid="uid://dvidbolhnl5uw"]
+[gd_scene load_steps=6 format=3 uid="uid://dvidbolhnl5uw"]
 
 [ext_resource type="PackedScene" uid="uid://o5rf3ide4cs0" path="res://main_character.tscn" id="1_8mcq6"]
 [ext_resource type="PackedScene" uid="uid://djrhiq1tj2yrp" path="res://level_1.tscn" id="2_r5ekc"]
 [ext_resource type="PackedScene" uid="uid://bcqsbk4mitf2b" path="res://coin.tscn" id="3_b1sah"]
+[ext_resource type="PackedScene" uid="uid://drhmc1o1sft14" path="res://enemy_1.tscn" id="4_2ixho"]
 
 [sub_resource type="Environment" id="Environment_x4c7h"]
 background_mode = 3
@@ -30,3 +31,7 @@ environment = SubResource("Environment_x4c7h")
 [node name="CanvasModulate" type="CanvasModulate" parent="."]
 visible = false
 color = Color(0.32291, 0.35302, 0.336207, 1)
+
+[node name="Enemy1" parent="." instance=ExtResource("4_2ixho")]
+position = Vector2(563, 358)
+scale = Vector2(0.25, 0.25)

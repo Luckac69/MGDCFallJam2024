@@ -1,9 +1,11 @@
-[gd_scene load_steps=6 format=3 uid="uid://brro1cknoi5ad"]
+[gd_scene load_steps=7 format=3 uid="uid://brro1cknoi5ad"]
 
 [ext_resource type="Script" path="res://bullet.gd" id="1_mtbtu"]
 [ext_resource type="Texture2D" uid="uid://bej20chqie4yd" path="res://WhiteSquare.png" id="2_wivvc"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_ru2ut"]
+radius = 7.96916
+height = 25.3683
 
 [sub_resource type="Gradient" id="Gradient_6f7rn"]
 offsets = PackedFloat32Array(0.174757, 0.466019)
@@ -14,9 +16,14 @@ gradient = SubResource("Gradient_6f7rn")
 fill = 1
 fill_from = Vector2(0.5, 0.5)
 
-[node name="Bullet" type="Area2D"]
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_1yevw"]
+radius = 5.97687
+height = 19.0262
+
+[node name="Bullet" type="Area2D" groups=["Bullet"]]
 modulate = Color(0.215686, 0.447059, 1, 1)
 scale = Vector2(0.946062, 1.00387)
+collision_layer = 2
 script = ExtResource("1_mtbtu")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
@@ -32,18 +39,17 @@ texture = ExtResource("2_wivvc")
 [node name="Kill" type="Timer" parent="."]
 autostart = true
 
-[node name="Timer" type="Timer" parent="."]
-wait_time = 0.05
-one_shot = true
-autostart = true
-
 [node name="PointLight2D" type="PointLight2D" parent="."]
 color = Color(0.215686, 0.447059, 1, 1)
 energy = 0.05
 texture = SubResource("GradientTexture2D_ml5pa")
 texture_scale = 5.0
 
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="." groups=["Bullet"]]
+rotation = 1.5708
+shape = SubResource("CapsuleShape2D_1yevw")
+debug_color = Color(0.985297, 0, 0.335169, 0.42)
+
 [connection signal="area_exited" from="." to="." method="_on_area_exited"]
 [connection signal="body_entered" from="." to="." method="_on_body_entered"]
 [connection signal="timeout" from="Kill" to="." method="_on_kill_timeout"]
-[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]

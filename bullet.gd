@@ -13,23 +13,8 @@ func _process(delta: float) -> void:
 func _on_kill_timeout() -> void:
 	queue_free()
 
-
-
-
-
-func _on_timer_timeout() -> void:
-	out_of_Shooter = true
-
-
-
-
-
-
-
-
-
-
 func _on_body_entered(body:Node2D) -> void:
-	if out_of_Shooter:
+	if body.is_in_group("Player"):
+		pass
+	else:
 		queue_free()
-

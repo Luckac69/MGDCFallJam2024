@@ -1,0 +1,56 @@
+[gd_scene load_steps=8 format=3 uid="uid://drhmc1o1sft14"]
+
+[ext_resource type="Script" path="res://enemy_1.gd" id="1_0pa7s"]
+[ext_resource type="Texture2D" uid="uid://bej20chqie4yd" path="res://WhiteSquare.png" id="1_h1vjn"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_df3dh"]
+radius = 307.319
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_icw7e"]
+radius = 86.2844
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_xyt6o"]
+radius = 99.4082
+
+[sub_resource type="Gradient" id="Gradient_bg3ne"]
+colors = PackedColorArray(1, 1, 1, 1, 0, 0, 0, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_ciio2"]
+gradient = SubResource("Gradient_bg3ne")
+width = 500
+height = 500
+use_hdr = true
+fill = 1
+fill_from = Vector2(0.5, 0.5)
+fill_to = Vector2(1, 0.5)
+
+[node name="Enemy1" type="CharacterBody2D" groups=["Enemy"]]
+script = ExtResource("1_0pa7s")
+speed = null
+
+[node name="HitBox" type="Area2D" parent="."]
+collision_mask = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="HitBox" groups=["Bullet"]]
+shape = SubResource("CircleShape2D_df3dh")
+debug_color = Color(0.627519, 0.530948, 0, 0.42)
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+modulate = Color(0.215686, 0.447059, 1, 1)
+texture = ExtResource("1_h1vjn")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CircleShape2D_icw7e")
+
+[node name="HurtBox" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="HurtBox"]
+shape = SubResource("CircleShape2D_xyt6o")
+debug_color = Color(0.989433, 0, 0.290509, 0.42)
+
+[node name="PointLight2D" type="PointLight2D" parent="."]
+color = Color(0.215686, 0.447059, 1, 1)
+energy = 0.2
+texture = SubResource("GradientTexture2D_ciio2")
+
+[connection signal="area_entered" from="HitBox" to="." method="_on_hit_box_area_entered"]
