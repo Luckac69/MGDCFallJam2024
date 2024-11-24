@@ -4,7 +4,7 @@
 [ext_resource type="Script" path="res://gun.gd" id="1_s72sm"]
 
 [node name="Gun" type="Node2D"]
-scale = Vector2(1, 0.2)
+scale = Vector2(1.01449, 0.198223)
 script = ExtResource("1_s72sm")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]

@@ -17,3 +17,8 @@ shape = SubResource("CapsuleShape2D_ru2ut")
 [node name="Sprite2D" type="Sprite2D" parent="."]
 scale = Vector2(0.05, 0.05)
 texture = ExtResource("1_qamld")
+
+[node name="Kill" type="Timer" parent="."]
+autostart = true
+
+[connection signal="timeout" from="Kill" to="." method="_on_kill_timeout"]
