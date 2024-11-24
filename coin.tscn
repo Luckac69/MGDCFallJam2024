@@ -1,10 +1,19 @@
-[gd_scene load_steps=4 format=3 uid="uid://bcqsbk4mitf2b"]
+[gd_scene load_steps=6 format=3 uid="uid://bcqsbk4mitf2b"]
 
 [ext_resource type="Script" path="res://coin.gd" id="1_moepc"]
-[ext_resource type="Texture2D" uid="uid://c240phh4d0ihg" path="res://icon.svg" id="1_ppjo0"]
+[ext_resource type="Texture2D" uid="uid://bej20chqie4yd" path="res://WhiteSquare.png" id="2_po6iq"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_0rio1"]
 radius = 71.0
+
+[sub_resource type="Gradient" id="Gradient_jlssf"]
+offsets = PackedFloat32Array(0, 0.42069, 0.696552)
+colors = PackedColorArray(1, 1, 1, 1, 0.0620689, 0.0620689, 0.0620689, 1, 0, 0, 0, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_ofoat"]
+gradient = SubResource("Gradient_jlssf")
+fill = 1
+fill_from = Vector2(0.5, 0.5)
 
 [node name="Coin" type="Area2D"]
 scale = Vector2(0.5, 0.5)
@@ -14,7 +23,13 @@ script = ExtResource("1_moepc")
 shape = SubResource("CircleShape2D_0rio1")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
-modulate = Color(0.495257, 0.524213, 1.92523e-07, 1)
-texture = ExtResource("1_ppjo0")
+modulate = Color(0.992157, 0.792157, 0.25098, 1)
+texture = ExtResource("2_po6iq")
+
+[node name="PointLight2D" type="PointLight2D" parent="."]
+visible = false
+color = Color(0.797419, 0.759139, 0, 1)
+texture = SubResource("GradientTexture2D_ofoat")
+texture_scale = 4.0
 
 [connection signal="body_entered" from="." to="." method="_on_body_entered"]

@@ -1,12 +1,34 @@
-[gd_scene load_steps=3 format=3 uid="uid://cfn2v4b15ukmo"]
+[gd_scene load_steps=5 format=3 uid="uid://cfn2v4b15ukmo"]
 
-[ext_resource type="Texture2D" uid="uid://c240phh4d0ihg" path="res://icon.svg" id="1_84fpv"]
 [ext_resource type="Script" path="res://gun.gd" id="1_s72sm"]
+[ext_resource type="Texture2D" uid="uid://bej20chqie4yd" path="res://WhiteSquare.png" id="2_6t8rh"]
+
+[sub_resource type="Gradient" id="Gradient_flw0a"]
+offsets = PackedFloat32Array(0.151724, 0.77931)
+colors = PackedColorArray(1, 1, 1, 1, 0, 0, 0, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_ff2hw"]
+gradient = SubResource("Gradient_flw0a")
+width = 100
+height = 100
+use_hdr = true
+fill = 2
+fill_from = Vector2(0, 0.5)
+fill_to = Vector2(1, 1)
 
 [node name="Gun" type="Node2D"]
 scale = Vector2(1.01449, 0.198223)
 script = ExtResource("1_s72sm")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
+modulate = Color(0.0313726, 0.027451, 0.0313726, 1)
 position = Vector2(50, 0)
-texture = ExtResource("1_84fpv")
+texture = ExtResource("2_6t8rh")
+
+[node name="Flashlight" type="PointLight2D" parent="."]
+visible = false
+scale = Vector2(5, 5)
+shadow_enabled = true
+texture = SubResource("GradientTexture2D_ff2hw")
+offset = Vector2(150, 0)
+texture_scale = 3.0
