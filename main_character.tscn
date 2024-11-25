@@ -1,8 +1,10 @@
-[gd_scene load_steps=8 format=3 uid="uid://o5rf3ide4cs0"]
+[gd_scene load_steps=10 format=3 uid="uid://o5rf3ide4cs0"]
 
 [ext_resource type="Script" path="res://main_character.gd" id="1_ipejo"]
+[ext_resource type="Resource" uid="uid://bwabi1u56gogt" path="res://inventory/PlayerInventory.tres" id="2_lwncj"]
 [ext_resource type="Texture2D" uid="uid://bej20chqie4yd" path="res://WhiteSquare.png" id="2_wwm11"]
 [ext_resource type="PackedScene" uid="uid://cfn2v4b15ukmo" path="res://gun.tscn" id="3_sufhb"]
+[ext_resource type="PackedScene" uid="uid://dt50fxl5jddo0" path="res://inventory/inventory_ui.tscn" id="5_y7u3c"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_1eus2"]
 radius = 11.5
@@ -25,6 +27,7 @@ fill_from = Vector2(0.5, 0.5)
 [node name="MainCharacter" type="CharacterBody2D" groups=["Player"]]
 scale = Vector2(0.5, 0.5)
 script = ExtResource("1_ipejo")
+inv = ExtResource("2_lwncj")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 modulate = Color(0.87451, 0.160784, 0.207843, 1)
@@ -43,14 +46,21 @@ shape = SubResource("CircleShape2D_1eus2")
 shape = SubResource("CircleShape2D_qs72h")
 debug_color = Color(0.593034, 0.537443, 0.284602, 0.42)
 
-[node name="PointLight2D" type="PointLight2D" parent="."]
-color = Color(0.916475, 0.231179, 0.262319, 1)
-energy = 0.5
-shadow_enabled = true
-texture = SubResource("GradientTexture2D_ehi3p")
-
 [node name="Camera2D" type="Camera2D" parent="."]
 position_smoothing_enabled = true
 rotation_smoothing_enabled = true
 drag_horizontal_enabled = true
 drag_vertical_enabled = true
+
+[node name="PointLight2D" type="PointLight2D" parent="."]
+color = Color(0.916475, 0.231179, 0.262319, 1)
+energy = 0.05
+shadow_enabled = true
+texture = SubResource("GradientTexture2D_ehi3p")
+
+[node name="InventoryUI" parent="." instance=ExtResource("5_y7u3c")]
+offset_left = -598.0
+offset_top = -618.0
+offset_right = -457.0
+offset_bottom = -527.0
+scale = Vector2(8.46875, 5.91667)

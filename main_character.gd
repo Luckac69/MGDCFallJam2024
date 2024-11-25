@@ -1,9 +1,12 @@
 extends CharacterBody2D
 
-@export var speed = 400
 
 var direction = Vector2.ZERO
 var friction = .05
+
+@export var speed = 400
+
+@export var inv: Inv
 
 func get_input():
 	set_process_unhandled_input(false)

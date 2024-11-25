@@ -35,3 +35,4 @@ color = Color(0.32291, 0.35302, 0.336207, 1)
 [node name="Enemy1" parent="." instance=ExtResource("4_2ixho")]
 position = Vector2(563, 358)
 scale = Vector2(0.25, 0.25)
+speed = 200
